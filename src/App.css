@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+li.contact{
+  color: white !important
+}
+a.contact{
+  color: white !important;
+  text-decoration: none !important;
+}
+h1.home{
+  padding: 100px;
+  color: whitesmoke;
+}
+.card-container{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+img{
+  height: 400px;
+}
+.card{
+  width: 400px;
+}
+.card-body{
+  display: flex;
+  justify-content: space-evenly;
+}
+#sticky-footer{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  width: -webkit-fill-available;
+}
