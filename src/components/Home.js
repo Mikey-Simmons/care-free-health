@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar"
-
+import Footer from "./Footer"
 function Home(){
     return(
         <>
@@ -27,11 +27,7 @@ function Home(){
 </div>
 </div>
         </div>
-        <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
-    <div class="container text-center">
-      <small>Copyright &copy; CareFreeHealth 2023</small>
-    </div>
-  </footer>
+        <Footer></Footer>
         </>
     )
 }
