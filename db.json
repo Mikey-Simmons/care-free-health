@@ -1,19 +1,136 @@
 {
-  "posts": [
+  "users": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Maria",
+      "password": "maria12345",
+      "gender": "F",
+      "dateOfBirth": "1996-01-01",
+      "email": "maria@gmail.com",
+      "mobileNumber": 1234567890,
+      "pincode": 123456,
+      "city": "Bangalore",
+      "state": "Karnataka",
+      "country": "India"
     }
   ],
-  "comments": [
+  "coaches": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "name": "Rose",
+      "password": "rose12345",
+      "gender": "F",
+      "dateOfBirth": "1996-01-01",
+      "mobileNumber": 1234567890,
+      "speciality": "Confidence Issues"
+    },
+    {
+      "name": "bobby",
+      "password": "fffffffffsds",
+      "gender": "Male",
+      "dateOfbirth": "2019-06-05",
+      "mobileNumber": "1234567890",
+      "speciality": "People",
+      "id": 2
+    },
+    {
+      "name": "Billy",
+      "password": "billy123",
+      "gender": "M",
+      "dateOfbirth": "2023-02-28",
+      "mobileNumber": "1234567890",
+      "speciality": "Meds",
+      "id": 3
+    },
+    {
+      "name": "2",
+      "password": "",
+      "gender": "",
+      "dateOfbirth": "",
+      "mobileNumber": "",
+      "speciality": "",
+      "id": 4
+    },
+    {
+      "name": "2",
+      "password": "",
+      "gender": "",
+      "dateOfbirth": "",
+      "mobileNumber": "",
+      "speciality": "",
+      "id": 5
+    },
+    {
+      "name": "eeeeee",
+      "password": "3",
+      "gender": "",
+      "dateOfbirth": "",
+      "mobileNumber": "",
+      "speciality": "",
+      "id": 6
+    },
+    {
+      "name": "Mr Trachy",
+      "password": "22223",
+      "gender": "Male",
+      "dateOfbirth": "2023-03-01",
+      "mobileNumber": "6661231234",
+      "speciality": "PE",
+      "id": 7
+    },
+    {
+      "name": "222",
+      "password": "22222",
+      "gender": "d",
+      "dateOfbirth": "2023-03-14",
+      "mobileNumber": "",
+      "speciality": "",
+      "id": 8
+    },
+    {
+      "name": "2222",
+      "password": "222222",
+      "gender": "d",
+      "dateOfbirth": "2023-03-15",
+      "mobileNumber": "22",
+      "speciality": "22",
+      "id": 9
+    },
+    {
+      "name": "ddd",
+      "password": "ddddd",
+      "gender": "d",
+      "dateOfbirth": "2023-03-14",
+      "mobileNumber": "",
+      "speciality": "",
+      "id": 10
+    },
+    {
+      "name": "www",
+      "password": "wwwww",
+      "gender": "w",
+      "dateOfbirth": "2000-01-14",
+      "mobileNumber": "w",
+      "speciality": "w",
+      "id": 11
+    },
+    {
+      "name": "Billy",
+      "password": "Bill123",
+      "gender": "Male",
+      "dateOfbirth": "1998-02-03",
+      "mobileNumber": "4058081234",
+      "speciality": "Creating positive vibes",
+      "id": 12
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "bookings": [
+    {
+      "appointmentDate": "2020-09-24",
+      "slot": "10 AM to 11 AM",
+      "userId": 1,
+      "coachId": 1,
+      "id": 1
+    }
+  ]
 }

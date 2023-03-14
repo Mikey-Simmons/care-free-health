@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./NavBar"
 import Footer from "./Footer"
+import { Link } from "react-router-dom";
 function Home(){
     return(
         <>
@@ -22,7 +23,7 @@ function Home(){
     
     <a href="/" class="btn btn-primary">Login as a Coach</a>
     
-    <a href="/" class="btn btn-primary">Join as a Coach</a>
+    <Link to="coachsignup" class="btn btn-primary">Join as a Coach</Link>
   </div>
 </div>
 </div>
