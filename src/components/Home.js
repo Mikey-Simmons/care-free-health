@@ -21,7 +21,7 @@ function Home(){
   <img  src="https://png.pngitem.com/pimgs/s/72-721152_transparent-coach-clipart-coach-png-png-download.png" class="card-img-top" alt="..."/>
   <div class="card-body">
     
-    <a href="/" class="btn btn-primary">Login as a Coach</a>
+    <Link to="coachlogin" class="btn btn-primary">Login as a Coach</Link>
     
     <Link to="coachsignup" class="btn btn-primary">Join as a Coach</Link>
   </div>
