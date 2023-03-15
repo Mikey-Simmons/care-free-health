@@ -1,76 +1,81 @@
-import React, { useState } from "react";
-import axios from "axios"
+import { useEffect, useState } from "react";
+import { Link,  useNavigate } from "react-router-dom";
+import axios from 'axios'
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const CoachLogin = () => {
-  const [status, setStatus] = useState(false);
-  const [id, setId] = useState("");
-  const[data,setData] = useState({
-    id: "",
-    password:""
-  });
- 
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName]= useState('');
+  const navigate = useNavigate();
 
+  useEffect(()=>{
+    sessionStorage.clear();
+  },[])
 
-
-  
-  const handleSubmit = async(event) => {
-   
-    event.preventDefault();
-    
-    var yo =  await axios.get("http://localhost:8080/coaches/"+id).then(res=> res.data,setStatus(true)).catch(function(error){
-        setId(9999);
-        setStatus(false);
-        console.log("Error");
-    });
-    
-    
-    
-    
-    
-  };
- const handleChange =(event) =>{
-     let { name, value } = event.target;
-    setData({ ...data, [name]: value })
-    
- }
- return (
-    <>
-      <div className="container">
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Username:</label>
-            <input
-              style={{ width: "40%" }}
-              type="text"
-              id="id"
-              name = "id"
-              value={data.name}
-              onChange={(e) => {setId(e.target.value)}}
-              className="form-control"
-              placeholder="Enter Id"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="pwd">Password:</label>
-            <input
-              style={{ width: "40%" }}
-              type="password"
-              id="password"
-              name = "password"
-              value={data.password}
-              onChange={handleChange}
-              className="form-control"
-              placeholder="Enter password"
-            />
-          </div>
-          <button onSubmit={handleSubmit} type="submit" className="btn btn-primary">
-            Login
-          </button>
-          {id === 9999 && <div className="text-error">Id is invalid</div>}
-          {status === false && <div className="text-error">Enter User Name and Password</div>}
-          {status === true  &&id !==9999  && <div className="text-success">Login Successful {id}</div>}
-        </form>
+  const ProceedLogin = (e) => {
+    e.preventDefault();
+    if(validate()){
+      axios.get("http://localhost:8080/coaches/"+id).then((res)=>{
+        return res.data;
+      }).then((resp)=>{
+        console.log(resp);
+        if(Object.keys(resp).length===0){
+          toast.error('Please enter valid username');
+        }else{
+          if(resp.password === password){
+            toast.success('Success');
+            sessionStorage.setItem('id', id);
+            sessionStorage.setItem('name', resp.name);
+            navigate("/coach/home")
+          }else{
+            toast.error("Please enter valid credentials")
+          }
+        }
+      }).catch((err)=>{
+        toast.error("Login failed due to: "+ err.message);
+      });
+    }
+  }
+  const validate = () => {
+    let result = true;
+    if (id === '' || id === null) {
+        result = false;
+        toast.warning('Please Enter Id');
+    }
+    if (password === '' || password === null) {
+        result = false;
+        toast.warning('Please Enter Password', {position: toast.POSITION.TOP_CENTER});
+    }
+    return result;
+}
+return (
+  <div className="container">
+    <ToastContainer />
+      <div className="offset-lg-3 col-lg-6" style={{ marginTop: '100px' }}>
+          <form onSubmit={ProceedLogin} className="container">
+              <div className="card">
+                  <div className="card-header">
+                      <h2>Coach Login</h2>
+                  </div>
+                  <div className="card-body">
+                      <div className="form-group">
+                          <label>Coach Id <span className="errmsg"></span></label>
+                          <input value={id} onChange={e => setId(e.target.value)} className="form-control"></input>
+                      </div>
+                      <div className="form-group">
+                          <label>Password <span className="errmsg"></span></label>
+                          <input type="password" value={password} onChange={e => setPassword(e.target.value)} className="form-control"></input>
+                      </div>
+                  </div>
+                  <div className="card-footer">
+                      <button type="submit" className="btn btn-primary">Login</button> 
+                      
+                  </div>
+              </div>
+          </form>
       </div>
-    </>
-  );
-};
+  </div>
+);
+}
 export default CoachLogin;

@@ -122,6 +122,15 @@
       "mobileNumber": "4058081234",
       "speciality": "Creating positive vibes",
       "id": 12
+    },
+    {
+      "name": "3333",
+      "password": "3333333333",
+      "gender": "f",
+      "dateOfbirth": "2000-01-31",
+      "mobileNumber": "0000000000",
+      "speciality": "yooooooooo",
+      "id": 13
     }
   ],
   "bookings": [
