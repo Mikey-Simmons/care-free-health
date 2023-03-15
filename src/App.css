@@ -2,10 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -68,4 +65,15 @@ img{
   display: flex;
   justify-content: center;
   width: -webkit-fill-available;
+}
+.container-login{
+  justify-content: center;
+  display: flex;
+}
+.card-header{
+  justify-content: center;
+  display: flex;
+}
+.card{
+  
 }

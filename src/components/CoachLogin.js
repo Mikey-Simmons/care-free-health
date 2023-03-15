@@ -3,6 +3,7 @@ import { Link,  useNavigate } from "react-router-dom";
 import axios from 'axios'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import NavBar from "./NavBar";
 const CoachLogin = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
@@ -24,16 +25,16 @@ const CoachLogin = () => {
           toast.error('Please enter valid username');
         }else{
           if(resp.password === password){
-            toast.success('Success');
+            toast.success('Success', {position: toast.POSITION.TOP_CENTER});
             sessionStorage.setItem('id', id);
             sessionStorage.setItem('name', resp.name);
             navigate("/coach/home")
           }else{
-            toast.error("Please enter valid credentials")
+            toast.error("Please enter valid credentials", {position: toast.POSITION.TOP_CENTER})
           }
         }
       }).catch((err)=>{
-        toast.error("Login failed due to: "+ err.message);
+        toast.error("Login failed due to: "+ err.message, {position: toast.POSITION.TOP_CENTER});
       });
     }
   }
@@ -41,7 +42,7 @@ const CoachLogin = () => {
     let result = true;
     if (id === '' || id === null) {
         result = false;
-        toast.warning('Please Enter Id');
+        toast.warning('Please Enter Id', {position: toast.POSITION.TOP_CENTER}) ;
     }
     if (password === '' || password === null) {
         result = false;
@@ -50,11 +51,14 @@ const CoachLogin = () => {
     return result;
 }
 return (
-  <div className="container">
+  <>  
+  <NavBar></NavBar>
+  <div className="container-login">
+    
     <ToastContainer />
-      <div className="offset-lg-3 col-lg-6" style={{ marginTop: '100px' }}>
+      <div className="" style={{ marginTop: '100px' }}>
           <form onSubmit={ProceedLogin} className="container">
-              <div className="card">
+              <div className="card border-primary">
                   <div className="card-header">
                       <h2>Coach Login</h2>
                   </div>
@@ -76,6 +80,7 @@ return (
           </form>
       </div>
   </div>
+  </>
 );
 }
 export default CoachLogin;
