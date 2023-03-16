@@ -9,7 +9,7 @@ import CoachHome from "./components/CoachHome";
 import UserHome from "./components/UserHome";
 import UserLogin from "./components/UserLogin";
 import UserSignup from "./components/UserSignup";
-
+import CoachProfile from "./components/CoachProfile";
 function App() {;
   return (
     <BrowserRouter>
@@ -21,6 +21,7 @@ function App() {;
     <Route path = "/usersignup" element={<UserSignup/>}/>
     <Route path = "/userlogin" element={<UserLogin/>}/>
     <Route path = "/user/home" element={<UserHome/>}/>
+    <Route path = "/coachprofile" element={<CoachProfile/>}/>
     </Routes>
     </BrowserRouter>
     

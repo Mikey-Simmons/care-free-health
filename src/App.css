@@ -52,10 +52,10 @@ h1.home{
 img{
   height: 400px;
 }
-.card{
+.card2{
   width: 400px;
 }
-.card-body{
+.card-body2{
   display: flex;
   justify-content: space-evenly;
 }
@@ -70,10 +70,10 @@ img{
   justify-content: center;
   display: flex;
 }
-.card-header{
+.card-header2{
   justify-content: center;
   display: flex;
 }
 .card{
-  
+  width: 400px
 }

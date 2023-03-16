@@ -1,29 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CoachNavBar from "./CoachNavBar";
 const CoachHome = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
   const [name, setName] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [appointments, setAppointments]= useState([]);
-  
+  const [appointments, setAppointments] = useState([]);
 
   const logout = () => {
     sessionStorage.clear();
     navigate("/coachlogin");
   };
-   async function fetchAppData(){
-    setLoading(true);
-    await axios.get("http://localhost:8080/bookings").then((res)=>{
-       return res.data; 
-        
-  }).then((resp)=>{
-    setAppointments(resp);  
-    console.log(appointments);
-    setLoading(false);
-  })
-}
+  
 
   useEffect(() => {
     let id = sessionStorage.getItem("id");
@@ -34,41 +24,42 @@ const CoachHome = () => {
       setId(id);
       setName(name);
       setLoading(true);
-      async function fetchBookings(){
-        const res =  await axios.get("http://localhost:8080/bookings");
+      async function fetchBookings() {
+        const res = await axios.get("http://localhost:8080/bookings");
         console.log(res.data);
         setAppointments(res.data);
-        setLoading(false)
+        setLoading(false);
       }
       fetchBookings();
     }
   }, []);
-  if(loading) return <h1>Loading</h1>;
-  if(!appointments){
-    return <h1>Loading...
-
-    </h1>
-  }
-
-  
-  else{
+  if (loading) return <h1>Loading</h1>;
+  if (!appointments) {
+    return <h1>Loading...</h1>;
+  } else {
     return (
-        <>
-          <h1>Welcome {name} </h1>
-            {appointments.map(({appointmentDate})=>(
-                <h1>{appointmentDate}</h1>
-            ))}
-          <button onClick={logout}>Logout</button>
-        </>
-      );
-  }
-    
+      <>
+      <CoachNavBar></CoachNavBar>
+        <h1>Welcome {name} </h1>
 
-  }
-   
-  
- 
-  
+        {appointments.map(({ appointmentDate, slot, userId, coachId, id }) => (
+          <div class="card">
+            <div class="card-body">
+                
+              <h5 class="card-title">Appointment: {id}</h5>
+              <h5 class="card-title">Appointment Date: {appointmentDate}</h5>
+              <h5 class="card-title">Time Slot: {slot}</h5>
+              <p class="card-text">
+                UserId: {userId} CoachId: {coachId}
+              </p>
+            </div>
+          </div>
+        ))}
 
+        <button onClick={logout}>Logout</button>
+      </>
+    );
+  }
+};
 
 export default CoachHome;
