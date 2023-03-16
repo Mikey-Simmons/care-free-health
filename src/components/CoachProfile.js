@@ -54,7 +54,7 @@ const CoachHome = () => {
           </div>
         </div>
 
-        <button onClick={logout}>Logout</button>
+        
       </>
     );
   }
