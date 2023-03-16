@@ -12,9 +12,9 @@ function Home(){
         <div class="card" >
   <img src="https://png.pngitem.com/pimgs/s/42-423085_clip-art-person-clip-art-black-man-symbol.png" class="card-img-top" alt="..."/>
   <div class="card-body">
-    <a href="/" class="btn btn-primary">Login as a User </a>
+    <Link to="userlogin" class="btn btn-primary">Login as a User </Link>
     
-    <a href="/" class="btn btn-primary">Join as a User </a>
+    <Link to="usersignup" class="btn btn-primary">Join as a User </Link>
   </div>
 </div>
 <div class="card" >

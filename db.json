@@ -12,6 +12,19 @@
       "city": "Bangalore",
       "state": "Karnataka",
       "country": "India"
+    },
+    {
+      "name": "rizzy",
+      "password": "rizz123",
+      "gender": "m",
+      "email": "rizzy12@aol.com",
+      "dateOfbirth": "1996-02-06",
+      "mobileNumber": "1234567899",
+      "zipcode": "78541",
+      "state": "CA",
+      "city": "Little Italy",
+      "country": "USA",
+      "id": 2
     }
   ],
   "coaches": [
@@ -131,6 +144,18 @@
       "mobileNumber": "0000000000",
       "speciality": "yooooooooo",
       "id": 13
+    },
+    {
+      "name": "RizzMan",
+      "password": "12345",
+      "gender": "Alpha Male",
+      "dateOfbirth": "1998-06-16",
+      "mobileNumber": "1234567899",
+      "zipcode": "77743",
+      "state": "California",
+      "city": "Little Italy",
+      "country": "USA",
+      "id": 14
     }
   ],
   "bookings": [
