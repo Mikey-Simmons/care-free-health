@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate} from "react-router-dom";
 import axios from "axios"
 import UserNavBar from "./UserNavBar";
+import SearchBox from "./SearchBox";
 const UserHome =()=>{
     const navigate = useNavigate();
     const [id, setId] = useState(null);
     const [name, setName] = useState(null);
     const [coaches, setCoaches] = useState([]);
+    const [searchfield, setSearchfield] = useState('')
     const logout = ()=>{
         sessionStorage.clear();
         navigate('/userlogin');
@@ -29,15 +31,22 @@ const UserHome =()=>{
             fetchCoaches();
         }
     }, []);
+    const onSearchChange = (event) => {
+        setSearchfield(  event.target.value )
+    }
+    const filteredCoaches = coaches.filter(coach => {
+        return coach.speciality.toLowerCase().includes(searchfield.toLowerCase());
 
+    })
     return(
         <>
 
         <UserNavBar></UserNavBar>
+        <SearchBox searchChange={onSearchChange}></SearchBox>
         <h1>Welcome {name}  </h1>
         <div className="container2">
         
-        {coaches.map(({name, mobileNumber, speciality,id })=>(
+        {filteredCoaches.map(({name, mobileNumber, speciality,id })=>(
             <div class="card">
             <div class="card-body">
                 

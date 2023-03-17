@@ -81,3 +81,6 @@ img{
   display: flex;
   justify-content:space-evenly ;
 }
+input.form-control{
+  width: 300px;
+}
