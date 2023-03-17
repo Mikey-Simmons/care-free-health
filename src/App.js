@@ -10,6 +10,7 @@ import UserHome from "./components/UserHome";
 import UserLogin from "./components/UserLogin";
 import UserSignup from "./components/UserSignup";
 import CoachProfile from "./components/CoachProfile";
+import Schedule from "./components/Schedule";
 function App() {;
   return (
     <BrowserRouter>
@@ -22,6 +23,7 @@ function App() {;
     <Route path = "/userlogin" element={<UserLogin/>}/>
     <Route path = "/user/home" element={<UserHome/>}/>
     <Route path = "/coachprofile" element={<CoachProfile/>}/>
+    <Route path = "/coachschedule" element={<Schedule/>}/>
     </Routes>
     </BrowserRouter>
     

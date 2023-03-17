@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CoachNavBar from "./CoachNavBar";
-const CoachHome = () => {
+const Schedule = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
   const [name, setName] = useState(null);
@@ -63,4 +63,4 @@ const CoachHome = () => {
   }
 };
 
-export default CoachHome;
+export default Schedule;
