@@ -80,6 +80,7 @@ img{
 .container2{
   display: flex;
   justify-content:space-evenly ;
+  padding: 50px;
 }
 input.form-control{
   width: 300px;

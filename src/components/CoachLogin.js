@@ -26,7 +26,7 @@ const CoachLogin = () => {
         }else{
           if(resp.password === password){
             toast.success('Success', {position: toast.POSITION.TOP_CENTER});
-            sessionStorage.setItem('id', id);
+            sessionStorage.setItem('coachid', resp.id);
             sessionStorage.setItem('name', resp.name);
             navigate("/coach/home")
           }else{

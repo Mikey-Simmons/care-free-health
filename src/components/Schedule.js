@@ -16,7 +16,7 @@ const Schedule = () => {
   
 
   useEffect(() => {
-    let id = sessionStorage.getItem("id");
+    let id = sessionStorage.getItem("coachid");
     let name = sessionStorage.getItem("name");
     if (id === "" || id === null) {
       navigate("/");

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate} from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import axios from "axios"
 import UserNavBar from "./UserNavBar";
 import SearchBox from "./SearchBox";
@@ -54,7 +54,7 @@ const UserHome =()=>{
               <h5 class="card-title">Coach Id:  {id}</h5>
               <h5 class="card-title">Mobile Number:  {mobileNumber}</h5>
               <h5 class="card-title">Specialty: {speciality}</h5>
-              <button>Book an Appointment</button>
+              <Link to="coachsignup" class="btn btn-primary">Book an Appointment</Link>
             </div>
           </div>
           

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CoachNavBar from "./CoachNavBar";
-const CoachHome = () => {
+const CoachProfile = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
   const [name, setName] = useState(null);
@@ -17,7 +17,7 @@ const CoachHome = () => {
   };
 
   useEffect(() => {
-    let id = sessionStorage.getItem("id");
+    let id = sessionStorage.getItem("coachid");
     let name = sessionStorage.getItem("name");
     if (id === "" || id === null) {
       navigate("/");
@@ -60,4 +60,4 @@ const CoachHome = () => {
   }
 };
 
-export default CoachHome;
+export default CoachProfile;

@@ -8,10 +8,10 @@
       "dateOfBirth": "1996-01-01",
       "email": "maria@gmail.com",
       "mobileNumber": 1234567890,
-      "pincode": 123456,
-      "city": "Bangalore",
-      "state": "Karnataka",
-      "country": "India"
+      "zipcode": 98052,
+      "city": "Redmond",
+      "state": "WA",
+      "country": "USA"
     },
     {
       "name": "rizzy",
