@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserNavBar from "./UserNavBar";
+import Footer from "./Footer";
 const UserProfile = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
@@ -67,6 +68,7 @@ const UserProfile = () => {
         </div>
 
         </div>
+        <Footer></Footer>
       </>
     );
   }

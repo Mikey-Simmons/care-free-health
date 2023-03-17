@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import CoachNavBar from "./CoachNavBar";
+import Footer from "./Footer";
 const CoachHome = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
@@ -57,7 +58,7 @@ const CoachHome = () => {
           </div>
         ))}
 
-        
+        <Footer></Footer>
       </>
     );
   }

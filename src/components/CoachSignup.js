@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Footer from "./Footer";
 const CoachSignup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -93,6 +94,7 @@ const CoachSignup = () => {
         <button onClick={addCoach} className="btn btn-primary">Add</button><br></br>
           
       </form>
+      <Footer></Footer>
     </>
   
   );
@@ -102,7 +104,9 @@ const CoachSignup = () => {
     return(<>
     <h1>You are a coach now!</h1>
     <Link to="coachlogin" class="btn btn-primary">Login</Link>
-    </>)
+    <Footer></Footer>
+    </>
+    )
   }
 }
 export default CoachSignup;

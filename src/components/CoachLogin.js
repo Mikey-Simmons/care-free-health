@@ -4,6 +4,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 const CoachLogin = () => {
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
@@ -80,6 +81,7 @@ return (
           </form>
       </div>
   </div>
+  <Footer></Footer>
   </>
 );
 }

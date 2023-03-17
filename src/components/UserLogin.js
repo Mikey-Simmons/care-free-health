@@ -4,6 +4,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 const UserLogin = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
@@ -103,6 +104,7 @@ const UserLogin = () => {
           </form>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };

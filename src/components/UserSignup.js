@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import Footer from "./Footer";
 const UserSignup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -128,6 +129,7 @@ const UserSignup = () => {
         <button onClick={addUser} className="btn btn-primary">Add</button><br></br>
           
       </form>
+      <Footer></Footer>
     </>
   
   );
@@ -137,6 +139,7 @@ const UserSignup = () => {
     return(<>
     <h1>{success}</h1>
     <Link to="userlogin" class="btn btn-primary">Login</Link>
+    <Footer></Footer>
     </>)
   }
 }

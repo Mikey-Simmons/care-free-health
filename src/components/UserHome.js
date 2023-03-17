@@ -3,6 +3,7 @@ import { useNavigate, Link} from "react-router-dom";
 import axios from "axios"
 import UserNavBar from "./UserNavBar";
 import SearchBox from "./SearchBox";
+import Footer from "./Footer";
 const UserHome =()=>{
     const navigate = useNavigate();
     const [id, setId] = useState(null);
@@ -60,7 +61,7 @@ const UserHome =()=>{
           
         ))}
         </div>
-        
+        <Footer></Footer>
         </>
     )
      
