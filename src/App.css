@@ -77,3 +77,7 @@ img{
 .card{
   width: 400px
 }
+.container2{
+  display: flex;
+  justify-content:space-evenly ;
+}
