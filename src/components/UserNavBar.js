@@ -15,7 +15,7 @@ function UserNavBar() {
             CareFreeHealth
           </a>
           <li className="navbar nav-item">
-            <a className="contact" href="/userappointments">
+            <a className="contact" href="/userschedule">
               My Appointments
             </a>
           </li>
