@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import CoachNavBar from "./CoachNavBar";
+import UserNavBar from "./UserNavBar";
 import Footer from "./Footer";
 const UserSchedule = () => {
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const UserSchedule = () => {
       <>
 
 
-      <CoachNavBar></CoachNavBar>
+      <UserNavBar></UserNavBar>
       <div className="container2">
         <h1>Welcome {name} </h1>
 
