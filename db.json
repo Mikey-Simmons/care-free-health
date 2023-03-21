@@ -133,6 +133,55 @@
       "userId": "1",
       "coachId": "1",
       "id": 11
+    },
+    {
+      "appointmentDate": null,
+      "slot": "9AM to 10AM",
+      "userId": "1",
+      "coachId": "1",
+      "id": 12
+    },
+    {
+      "appointmentDate": "2023-03-02",
+      "slot": "9AM to 10AM",
+      "userId": "1",
+      "coachId": "1",
+      "id": 13
+    },
+    {
+      "appointmentDate": "2023-03-11",
+      "slot": "11AM to 12PM",
+      "userId": "1",
+      "coachId": "1",
+      "id": 14
+    },
+    {
+      "appointmentDate": "2023-03-12",
+      "slot": "10AM to 11AM",
+      "userId": "1",
+      "coachId": "1",
+      "id": 15
+    },
+    {
+      "appointmentDate": "2023-03-20",
+      "slot": "10AM to 11AM",
+      "userId": "1",
+      "coachId": "1",
+      "id": 16
+    },
+    {
+      "appointmentDate": "2023-04-03",
+      "slot": "10AM to 11AM",
+      "userId": "1",
+      "coachId": "1",
+      "id": 17
+    },
+    {
+      "appointmentDate": "2023-03-27",
+      "slot": "10AM to 11AM",
+      "userId": "1",
+      "coachId": "1",
+      "id": 18
     }
   ]
 }

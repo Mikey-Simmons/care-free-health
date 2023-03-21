@@ -27,11 +27,28 @@ const Appointment = () => {
   }, []);
   const validate =()=>{
     let result = true;
+    
     if(slot===""){
       result = false;
-      toast.warning("Please pick a time slot");
+      toast.warning("Please pick a time slot", { position: toast.POSITION.TOP_CENTER });
 
     }
+    if(appointmentDate===null|| appointmentDate===""){
+      result=false;
+      toast.warning("Please select a date", { position: toast.POSITION.TOP_CENTER })
+    }
+    let today = new Date();
+    let myDate = new Date(appointmentDate);
+    if(today>myDate){
+      result= false;
+      toast.warning("Please select a future date", { position: toast.POSITION.TOP_CENTER })
+    }
+    if((myDate.getDate()-today.getDate())>=7){
+      
+      result=false;
+      toast.warning("Please select a date within the next 7 days.")
+    }
+    
     return result;
   }
   const bookAppointment= (e)=>{
@@ -43,6 +60,7 @@ const Appointment = () => {
       coachId: routeParams.id,
     }
     if(validate()){
+      
       toast.success("Success", { position: toast.POSITION.TOP_CENTER });
       axios.post("http://localhost:8080/bookings", newAppointment).then(setSuccess("Success"));
     }
@@ -54,7 +72,9 @@ const Appointment = () => {
   return (
    <>
     <UserNavbar></UserNavbar>
-    <div className="container-login">
+    <div className="container-book">
+      <div className="book">
+        <h1>Book Appointment</h1>
     <ToastContainer />
       <form>
         <div className="form-group">
@@ -74,7 +94,7 @@ const Appointment = () => {
         
         <div className="form-group">
           <label for="times">Choose a Time Slot:</label>
-
+          <br></br>
           <select onChange={(e)=>{setSlot(e.target.value)}} name="times" id="times">
           <option value="">          </option>
             <option value="9AM to 10AM">9AM to 10AM</option>
@@ -85,11 +105,14 @@ const Appointment = () => {
             <option value="2PM to 3PM">2PM to 3PM</option>
             <option value="4PM to 5PM">4PM to 5PM</option>
           </select>
+          <br></br>
+          <br></br>
           <button onClick={bookAppointment} type="button" class="btn btn-primary">
                       Book Appointment
                     </button>
         </div>
       </form>
+      </div>
     </div>
     <Footer></Footer>
     </>

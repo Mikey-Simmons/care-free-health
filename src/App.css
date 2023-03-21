@@ -87,3 +87,14 @@ img{
 input.form-control{
   width: 300px;
 }
+.container-book{
+  justify-content: center;
+  display: flex;
+  margin-top: 100px;
+  
+  
+}
+.book{
+  background-color: whitesmoke;
+  padding: 50px;
+}
