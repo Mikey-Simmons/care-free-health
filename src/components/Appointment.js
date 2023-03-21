@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import UserNavbar from "./UserNavBar";
 import Footer from "./Footer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Appointment = () => {
   const [coachId, setCoachId] = useState("");
   const [userId, setUserId] = useState("");
@@ -11,6 +13,7 @@ const Appointment = () => {
   const navigate = useNavigate();
   const [success, setSuccess] = useState("");
   const [appointmentDate, setAppointmentDate] = useState(null);
+  
   useEffect(() => {
     let id = sessionStorage.getItem("id");
     let name = sessionStorage.getItem("name");
@@ -22,6 +25,15 @@ const Appointment = () => {
       
     }
   }, []);
+  const validate =()=>{
+    let result = true;
+    if(slot===""){
+      result = false;
+      toast.warning("Please pick a time slot");
+
+    }
+    return result;
+  }
   const bookAppointment= (e)=>{
     e.preventDefault();
     let newAppointment = {
@@ -30,8 +42,11 @@ const Appointment = () => {
       userId: userId,
       coachId: routeParams.id,
     }
-    console.log(appointmentDate)
-    axios.post("http://localhost:8080/bookings", newAppointment).then(setSuccess("Success"));
+    if(validate()){
+      toast.success("Success", { position: toast.POSITION.TOP_CENTER });
+      axios.post("http://localhost:8080/bookings", newAppointment).then(setSuccess("Success"));
+    }
+    
 }
     if(success===""){
 
@@ -39,8 +54,8 @@ const Appointment = () => {
   return (
    <>
     <UserNavbar></UserNavbar>
-    <div className="container">
-        
+    <div className="container-login">
+    <ToastContainer />
       <form>
         <div className="form-group">
           
@@ -61,6 +76,7 @@ const Appointment = () => {
           <label for="times">Choose a Time Slot:</label>
 
           <select onChange={(e)=>{setSlot(e.target.value)}} name="times" id="times">
+          <option value="">          </option>
             <option value="9AM to 10AM">9AM to 10AM</option>
             <option value="10AM to 11AM">10AM to 11AM</option>
             <option value="11AM to 12PM">11AM to 12PM</option>
@@ -79,13 +95,12 @@ const Appointment = () => {
     </>
   );
   }else{
-    return(
-        <>
-        <UserNavbar></UserNavbar>
-    <h1>Success</h1>
-    <Footer></Footer>
-    </>
-    )
+    toast.success("Success", { position: toast.POSITION.TOP_CENTER });
+        
+    navigate("/userschedule");
+    
+   
+    
 
   }
 
