@@ -6,20 +6,32 @@ import "react-toastify/dist/ReactToastify.css";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 const UserLogin = () => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-
+  
+  const [user, setUser]=useState({
+    userId:"",
+    password:""
+  })
   const navigate = useNavigate();
 
   useEffect(() => {
     sessionStorage.clear();
   }, []);
-
+  const changeHandler= (event)=>{
+    event.preventDefault();
+    let name = event.target.name;
+    let value = event.target.value;
+    
+    setUser({
+      ...user,
+      [name]:value
+    })
+  }
   const ProceedLogin = (e) => {
+    console.log(user["userId"])
     e.preventDefault();
     if (validate()) {
       axios
-        .get("http://localhost:8080/users/" + id)
+        .get("http://localhost:8080/users/" + user.userId)
         .then((res) => {
           return res.data;
         })
@@ -28,9 +40,9 @@ const UserLogin = () => {
           if (Object.keys(resp).length === 0) {
             toast.error("Please enter valid user id");
           } else {
-            if (resp.password === password) {
+            if (resp.password === user["password"]) {
               toast.success("Success", { position: toast.POSITION.TOP_CENTER });
-              sessionStorage.setItem("id", id);
+              sessionStorage.setItem("id", user["userId"]);
               sessionStorage.setItem("name", resp.name);
               navigate("/user/home");
             } else {
@@ -49,11 +61,11 @@ const UserLogin = () => {
   };
   const validate = () => {
     let result = true;
-    if (id === "" || id === null) {
+    if (user["userId"] === "" || user["userId"] === null) {
       result = false;
       toast.warning("Please Enter Id", { position: toast.POSITION.TOP_CENTER });
     }
-    if (password === "" || password === null) {
+    if (user["password"] === "" || user["password"] === null) {
       result = false;
       toast.warning("Please Enter Password", {
         position: toast.POSITION.TOP_CENTER,
@@ -78,9 +90,10 @@ const UserLogin = () => {
                     User Id <span className="errmsg"></span>
                   </label>
                   <input
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
+                    value={user["userId"]}
+                    onChange={changeHandler}
                     className="form-control"
+                    name="userId"
                   ></input>
                 </div>
                 <div className="form-group">
@@ -89,8 +102,9 @@ const UserLogin = () => {
                   </label>
                   <input
                     type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name="password"
+                    value={user.password}
+                    onChange={changeHandler}
                     className="form-control"
                   ></input>
                 </div>
