@@ -44,6 +44,10 @@ h1.home{
   padding: 100px;
   color: whitesmoke;
 }
+h1.userhome{
+  
+  color: whitesmoke;
+}
 .card-container{
   display: flex;
   justify-content: space-evenly;

@@ -14,6 +14,7 @@ const UserHome = () => {
   const [searchfield, setSearchfield] = useState("");
   const [slot, setSlot]= useState("");
   const [appointmentDate, setAppointmentDate] = useState("");
+  
   const logout = () => {
     sessionStorage.clear();
     navigate("/userlogin");
@@ -34,14 +35,19 @@ const UserHome = () => {
         setCoaches(res.data);
       }
       fetchCoaches();
+      
+     
     }
   }, []);
   const onSearchChange = (event) => {
+    event.preventDefault();
     setSearchfield(event.target.value);
   };
   const filteredCoaches = coaches.filter((coach) => {
     return coach.speciality.toLowerCase().includes(searchfield.toLowerCase());
+    
   });
+  
   const bookAppointment= (e)=>{
     e.preventDefault();
     let newAppointment = {
@@ -51,35 +57,46 @@ const UserHome = () => {
       coachId: coachId,
     }
   }
-  return (
-    <>
-      <UserNavBar></UserNavBar>
-      <SearchBox searchChange={onSearchChange}></SearchBox>
-      <h1>Welcome {name} </h1>
-      <div className="container2">
-        {filteredCoaches.map(({ name, mobileNumber, speciality, id }) => (
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{name}</h5>
-              <h5 class="card-title">Coach Id: {id}</h5>
-              <h5 class="card-title">Mobile Number: {mobileNumber}</h5>
-              <h5 class="card-title">Specialty: {speciality}</h5>
-              <Link
+  
+    
+      
+    return (
+      <>
+        <UserNavBar></UserNavBar>
+        
+        <div className="container2">
+        <h1 className="userhome">Welcome {name}! </h1>
+        </div>
+        <div className="container">
+        <SearchBox searchChange={onSearchChange}></SearchBox>
+        </div>
+        <div className="container2">
+          
+          {filteredCoaches.map(({ name, mobileNumber, speciality, id }) => (
+            <div className="card">
+              <div className="card-body">
+                <h5 className="card-title">{name}</h5>
+                <h5 className="card-title">Coach Id: {id}</h5>
+                <h5 className="card-title">Mobile Number: {mobileNumber}</h5>
+                <h5 className="card-title">Specialty: {speciality}</h5>
+                <Link
+                  
+                  to={`/book/${id}`}
+                  class="btn btn-primary"
+                  
+                >
+                  Book an Appointment
+                </Link>
                 
-                to={`/book/${id}`}
-                class="btn btn-primary"
-                
-              >
-                Book an Appointment
-              </Link>
+              </div>
               
             </div>
-            
-          </div>
-        ))}
-      </div>
-      <Footer></Footer>
-    </>
-  );
+          ))}
+        </div>
+        <Footer></Footer>
+      </>
+    );
+  
+  
 };
 export default UserHome;

@@ -8,7 +8,7 @@ const SearchBox = ({searchfield, searchChange}) =>{
         <input
         className='form-control' 
         type='search'
-        placeholder='Search for speciality'
+        placeholder="Search for a speciality"
         onChange={searchChange}/>
         </div>
         </>
