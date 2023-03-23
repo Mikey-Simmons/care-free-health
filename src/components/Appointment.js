@@ -6,7 +6,7 @@ import Footer from "./Footer";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Appointment = () => {
-  const [coachId, setCoachId] = useState("");
+  
   const [userId, setUserId] = useState("");
   const [slot, setSlot] = useState("");
   const routeParams = useParams();
