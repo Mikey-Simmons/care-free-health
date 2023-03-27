@@ -9,6 +9,7 @@ const UserSchedule = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
   const [name, setName] = useState(null);
+  const [coaches, setCoaches] = useState([]);
   const [loading, setLoading] = useState(false);
   const [appointments, setAppointments] = useState([]);
   const [update, setUpdate] = useState(false);
@@ -66,12 +67,27 @@ const UserSchedule = () => {
         ).then((response)=> {setAppointments(response.data)})
         .catch((error)=> {console.log(error)});
         setLoading(false);
-
+        async function fetchCoaches() {
+          const res = await axios.get("http://localhost:8080/coaches");
+          
+          setCoaches(res.data);
+        }
+        fetchCoaches();
         
       
     
     }
   }, [])
+  const findCoachName =(id)=>{
+    if(coaches[id]=== undefined) {return null}
+    
+    else{
+      return coaches[id].name ;
+    }
+    
+
+  } 
+  
   const findBooking =(id)=>{
     let book = appointments.find(
       function(el){
@@ -100,9 +116,11 @@ const UserSchedule = () => {
   }
   
   if (loading) return <h1>Loading</h1>;
+  
   if (!appointments) {
     return <h1>Loading...</h1>;
-  } else {
+  } 
+  else {
     return (
       <>
         <UserNavBar></UserNavBar>
@@ -114,13 +132,16 @@ const UserSchedule = () => {
             ({ appointmentDate, slot, userId, coachId, id }) => (
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">
-                    Appointment Date: {appointmentDate}
-                  </h5>
-                  <h5 class="card-title">Time Slot: {slot}</h5>
-                  <p class="card-text">
-                    User: {userId} Coach: {coachId}
-                  </p>
+                <h5 class="card-title">
+                  
+                  Appointment Date: {appointmentDate}
+                </h5>
+                <p className="card-text">
+                Coach: {findCoachName(coachId)}
+                </p>
+                  
+                  <p className="card-text">Time Slot: {slot}</p>
+                  
                   <button className="btn btn-danger" onClick={()=>areYouSure(id)} >
                     Cancel Appointment
                   </button>
