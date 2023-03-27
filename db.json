@@ -58,11 +58,11 @@
   ],
   "bookings": [
     {
-      "appointmentDate": "2023-09-25",
-      "id": 2,
+      "appointmentDate": "2023-03-28",
       "slot": "4PM to 5PM",
-      "userId": 1,
-      "coachId": 1
+      "userId": "1",
+      "coachId": "5",
+      "id": 3
     }
   ]
 }

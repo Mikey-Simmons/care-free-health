@@ -13,12 +13,17 @@ const UserSchedule = () => {
   const [loading, setLoading] = useState(false);
   const [appointments, setAppointments] = useState([]);
   const [update, setUpdate] = useState(false);
+  const months = ["blank","January", "February","March", "April", "May","June","July","August","September","October", "November", "December"]
   const [appToBeUpdated, setAppToBeUpdated] = useState({appointmentDate: "",
   id: 0,
   slot: "",
   userId: 0,
   coachId: 0})
-
+  const dateParse=(date)=>{
+    var myArray = date.split('-');
+    var myNum = parseInt(myArray[1]);
+    return months[myNum]+" "+myArray[2]+", " +myArray[0];
+  }
   const logout = () => {
     sessionStorage.clear();
     navigate("/coachlogin");
@@ -71,22 +76,26 @@ const UserSchedule = () => {
           const res = await axios.get("http://localhost:8080/coaches");
           
           setCoaches(res.data);
+          
         }
         fetchCoaches();
         
-      
+        
     
     }
   }, [])
-  const findCoachName =(id)=>{
-    if(coaches[id]=== undefined) {return null}
+  const findCoachName =(coachId)=>{
     
-    else{
-      return coaches[id].name ;
+    var coachName = "";
+    for(var i =0; i<coaches.length; i++){
+      if(coaches[i].id==coachId){
+        
+        return coaches[i].name;
+      }
+      console.log(coaches[i].id)
+      
     }
-    
-
-  } 
+  }
   
   const findBooking =(id)=>{
     let book = appointments.find(
@@ -123,34 +132,45 @@ const UserSchedule = () => {
   else {
     return (
       <>
+      
         <UserNavBar></UserNavBar>
         <div className="container2">
-          <h1 className="userhome">Welcome {name} </h1>
+          
+          <h1 className="userhome">{name}'s Appointments </h1>
         </div>
-        <div className="container2">
+        
+        <div className="container2 px-1 py-5 mx-auto">
           {appointments.map(
             ({ appointmentDate, slot, userId, coachId, id }) => (
-              <div class="card">
-                <div class="card-body">
-                <h5 class="card-title">
+              
+              <div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="card">
+            <div class="row d-flex justify-content-between mx-2 px-3 card-strip">
+                <div class="left d-flex flex-column">
                   
-                  Appointment Date: {appointmentDate}
-                </h5>
-                <p className="card-text">
-                Coach: {findCoachName(coachId)}
-                </p>
-                  
-                  <p className="card-text">Time Slot: {slot}</p>
-                  
-                  <button className="btn btn-danger" onClick={()=>areYouSure(id)} >
-                    Cancel Appointment
-                  </button>
-                  <button className="btn btn-success" onClick={()=>{findBooking(id)}}  >
-                    Reschedule Appointment
-                  </button>
-                  
+                    <h5 class="mb-1">{slot}</h5>
+                    <p class="text-muted mb-1 sm-text">{dateParse(appointmentDate)}</p>
+                    
                 </div>
-              </div>
+                
+            </div>
+            <div class="row d-flex justify-content-between mx-2 px-3 card-strip">
+                <div class="left d-flex flex-column">
+                    <h5 class="mb-1">Coach {findCoachName(coachId)}</h5>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="row d-flex justify-content-between mx-2 px-3">
+                <button onClick={()=>{findBooking(id)}} class="btn btn-white">Reschedule</button>
+                <button onClick={()=>areYouSure(id)} class="btn btn-purple">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+              
             )
           )}
           {update ? 
