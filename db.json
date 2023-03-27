@@ -63,6 +63,13 @@
       "slot": "12PM to 1PM",
       "userId": 1,
       "coachId": 1
+    },
+    {
+      "appointmentDate": "2023-03-29",
+      "slot": "1PM to 2PM",
+      "userId": "1",
+      "coachId": "22",
+      "id": 3
     }
   ]
 }
