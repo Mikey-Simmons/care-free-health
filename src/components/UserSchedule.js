@@ -146,6 +146,16 @@ const UserSchedule = () => {
               <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
         <div class="card">
+        <div class="row d-flex justify-content-between mx-2 px-3 card-strip">
+                <div class="left d-flex flex-column">
+                
+                    <h5 class="mb-1">Appointment with Coach {findCoachName(coachId)} </h5>
+                    <div className="right">
+                    <img alt="" src="https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg"/>
+                      </div>
+                </div>
+                
+            </div>
             <div class="row d-flex justify-content-between mx-2 px-3 card-strip">
                 <div class="left d-flex flex-column">
                   
@@ -155,13 +165,7 @@ const UserSchedule = () => {
                 </div>
                 
             </div>
-            <div class="row d-flex justify-content-between mx-2 px-3 card-strip">
-                <div class="left d-flex flex-column">
-                    <h5 class="mb-1">Coach {findCoachName(coachId)}</h5>
-                    
-                </div>
-                
-            </div>
+            
             
             <div class="row d-flex justify-content-between mx-2 px-3">
                 <button onClick={()=>{findBooking(id)}} class="btn btn-white">Reschedule</button>
