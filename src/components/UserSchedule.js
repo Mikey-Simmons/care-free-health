@@ -12,9 +12,11 @@ const UserSchedule = () => {
   const [loading, setLoading] = useState(false);
   const [appointments, setAppointments] = useState([]);
   const [update, setUpdate] = useState(false);
-  const [appToBeUpdated, setAppToBeUpdated] = useState({
-    id:0, appointmentDate:"",slot:"",userId:0,  coachId:0
-  })
+  const [appToBeUpdated, setAppToBeUpdated] = useState({appointmentDate: "",
+  id: 0,
+  slot: "",
+  userId: 0,
+  coachId: 0})
 
   const logout = () => {
     sessionStorage.clear();
@@ -30,16 +32,7 @@ const UserSchedule = () => {
       
     
   };
-  const findBooking =(id)=>{
-    let book = appointments.find(
-      function(el){
-        return el.id=== id
-      }
-    )
-    console.log(book)
-    setUpdate(true);
-    setAppToBeUpdated(book);
-  }
+  
   
   const areYouSure =(appId)=>{
     confirmAlert({
@@ -67,25 +60,39 @@ const UserSchedule = () => {
       setId(id);
       setName(name);
       setLoading(true);
-      async function fetchBookings() {
-        const res = await axios.get(
+       
+        axios.get(
           "http://localhost:8080/bookings?userId=" + id
-        );
-        
-
-        setAppointments(res.data);
+        ).then((response)=> {setAppointments(response.data)})
+        .catch((error)=> {console.log(error)});
         setLoading(false);
-      }
-      fetchBookings();
+
+        
+      
+    
     }
   }, [])
-  const updateBooking = async(e)=>{
+  const findBooking =(id)=>{
+    let book = appointments.find(
+      function(el){
+        return el.id=== id
+      }
+    )
+    console.log(book)
+    setUpdate(true);
+    setAppToBeUpdated(book);
+    
+  }
+  const updateBooking = (e)=>{
     
     e.preventDefault();
     console.log(appToBeUpdated.id)
-    await axios.put("http://localhost:8080/bookings/"+ appToBeUpdated.id).then((response)=>{
-      
-      
+    axios.put("http://localhost:8080/bookings/"+ appToBeUpdated.id, appToBeUpdated).then((response)=>{
+      let index = appointments.findIndex((appointment) => appointment.id === appToBeUpdated.id)
+    let temp = [...appointments];
+    temp[index] = response.data  ;
+    setAppointments(temp)
+
       
       setUpdate(false);
     })
