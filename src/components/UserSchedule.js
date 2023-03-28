@@ -137,7 +137,7 @@ const UserSchedule = () => {
         
         <div className="container2">
           
-          <h1 className="userhome">{name}'s Appointments </h1>
+          <h1 className="userhome">{name}'s Upcoming Appointments </h1>
           
         </div>
         
