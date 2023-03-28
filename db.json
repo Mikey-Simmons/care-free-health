@@ -66,14 +66,14 @@
     },
     {
       "appointmentDate": "2023-03-29",
-      "slot": "11AM to 12PM",
+      "slot": "12PM to 1PM",
       "userId": "1",
       "coachId": "22",
       "id": 4
     },
     {
       "appointmentDate": "2023-03-29",
-      "slot": "11AM to 12PM",
+      "slot": "2PM to 3PM",
       "userId": "1",
       "coachId": "1",
       "id": 5

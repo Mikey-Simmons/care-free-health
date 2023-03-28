@@ -1,33 +1,78 @@
-import React from "react";
+import React  from "react";
 import NavBar from "./NavBar"
 import Footer from "./Footer"
-import { Link } from "react-router-dom";
-function Home(){
+import { Link, useNavigate, Navigate } from "react-router-dom";
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+const Home =()=>{
+  const navigate = useNavigate();
+  function navUserLogin(){
+    navigate("/userlogin")
+  }
+  function navCoachLogin(){
+    navigate("/coachlogin")
+  }
+  function navUserLogin(){
+    navigate("/userlogin")
+  }
+  function navCoachLogin(){
+    navigate("/coachlogin")
+  }
+  const AreYouSure =()=>{
+    confirmAlert({
+      title: 'Login',
+      message: 'Login as User or Coach',
+      buttons: [
+        {
+          label: 'User',
+          onClick: () => navigate("/userlogin")
+        },
+        {
+          label: 'Coach',
+          onClick: () => navigate("/coachlogin")
+          
+        }
+      ]
+    });
+  }
+  const AreYouSureSignUp =()=>{
+    confirmAlert({
+      title: 'Sign up',
+      message: 'Sign up as a new User or a new Coach',
+      buttons: [
+        {
+          label: 'User',
+          onClick: () => navigate("/usersignup")
+        },
+        {
+          label: 'Coach',
+          onClick: () => navigate("/coachsignup")
+          
+        }
+      ]
+    });
+  }
+
     return(
         <>
         <NavBar></NavBar>
+  
         <div className="container">
         <h1 className="home">Unlock your full potential and become your best self!</h1>
         <div className="card-container">
         <div class="card2" >
   
   <div class="card-body2">
-    <Link to="userlogin" class="btn btn-primary">Login as a User </Link>
+    <button onClick={AreYouSure} className="btn btn-primary">Login</button>
     
-    <Link to="usersignup" class="btn btn-primary">Join as a User </Link>
+    <button onClick={AreYouSureSignUp}className="btn btn-primary">Sign up</button>
   </div>
 </div>
-<div class="card2" >
-  
-  <div class="card-body2">
-    
-    <Link to="coachlogin" class="btn btn-primary">Login as a Coach</Link>
-    
-    <Link to="coachsignup" class="btn btn-primary">Join as a Coach</Link>
+
   </div>
 </div>
-</div>
-        </div>
+
+        
         <Footer></Footer>
         </>
     )
