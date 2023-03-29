@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import UserNavBar from "./UserNavBar";
 import SearchBox from "./SearchBox";
 import Footer from "./Footer";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import Scroll from "./Scroll";
+import Card from "./Card";
 const UserHome = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
@@ -19,7 +23,13 @@ const UserHome = () => {
     sessionStorage.clear();
     navigate("/userlogin");
   };
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
   useEffect(() => {
     let id = sessionStorage.getItem("id");
     let name = sessionStorage.getItem("name");
@@ -62,37 +72,40 @@ const UserHome = () => {
       
     return (
       <>
+      
         <UserNavBar></UserNavBar>
         
         <div className="container2">
         <h1 className="userhome">Welcome {name}! </h1>
         </div>
+        
         <div className="container">
         <SearchBox searchChange={onSearchChange}></SearchBox>
+        
         </div>
-        <div className="container2">
-          
-          {filteredCoaches.map(({ name, mobileNumber, speciality, id }) => (
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">{name}</h5>
-                <h5 className="card-title">Coach Id: {id}</h5>
-                <h5 className="card-title">Mobile Number: {mobileNumber}</h5>
-                <h5 className="card-title">Specialty: {speciality}</h5>
-                <Link
-                  
-                  to={`/book/${id}`}
-                  class="btn btn-primary"
-                  
-                >
-                  Book an Appointment
-                </Link>
-                
-              </div>
+        
+        
+               
+            
+        <div className="container2 px-1 py-5 mx-auto">
+        
+        
+    
+      
+          {filteredCoaches.map(
+            ({ name, mobileNumber, speciality, id, email}) => (
               
-            </div>
-          ))}
-        </div>
+              <Card name={name} mobileNumber={mobileNumber} speciality={speciality} id={id} email={email}></Card>
+
+            )
+          )}
+            
+            
+            
+          
+          </div>
+     
+   
         <Footer></Footer>
       </>
     );

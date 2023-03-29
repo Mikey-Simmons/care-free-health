@@ -38,6 +38,24 @@
       "speciality": "Confidence Issues"
     },
     {
+      "id": 67,
+      "name": "Gregory",
+      "password": "greg2345",
+      "gender": "M",
+      "dateOfBirth": "1999-01-01",
+      "mobileNumber": 1234567890,
+      "speciality": "Motivation"
+    },
+    {
+      "id": 52,
+      "name": "Beth",
+      "password": "beth12345",
+      "gender": "F",
+      "dateOfBirth": "1992-02-01",
+      "mobileNumber": 4045550909,
+      "speciality": "Relationships"
+    },
+    {
       "id": 22,
       "name": "Joseph",
       "password": "joe12345",

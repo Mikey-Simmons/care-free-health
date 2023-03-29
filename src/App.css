@@ -81,7 +81,12 @@ h1.userhome{
 .container2{
   display: flex;
   justify-content:space-evenly ;
-  padding: 50px;
+  padding: 20px;
+}
+.container3{
+  display: flex;
+  justify-content:center;
+  
 }
 input.form-control{
   width: 300px;
