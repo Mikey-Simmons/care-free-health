@@ -11,7 +11,7 @@ function CoachNavBar() {
     <>
       <nav class="navbar bg-primary" data-bs-theme="dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/coach/home">
             CareFreeHealth
           </a>
           <li className="navbar nav-item">
