@@ -74,18 +74,21 @@ const UserHome = () => {
         <h1 className="userhome">Welcome {name}! </h1>
         </div>
         
+        
+        <div className="container2">
+        <h2 className="userhome">Book an Appointment with one of our Coaches below! </h2>
+        </div>
         <div className="container">
         <SearchBox searchChange={onSearchChange}></SearchBox>
         
         </div>
-        
         
                
             
         
         
         
-    /
+    
         <CardList coaches={filteredCoaches}></CardList>
         
         

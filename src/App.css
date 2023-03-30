@@ -54,9 +54,19 @@ a.contact{
 }
 h1.home{
   padding: 100px;
-  color: whitesmoke;
+  color: black;
 }
 h1.userhome{
+  font-family: 'Maven Pro', sans-serif;
+  color: black;
+  font-weight: 700 !important;
+}
+h2.userhome{
+  font-family: 'Maven Pro', sans-serif;
+  color: black;
+  font-weight: 600 !important;
+}
+.card-header2.userhome{
   
   color: whitesmoke;
 }

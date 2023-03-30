@@ -5,12 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0d6efd;
+  background: radial-gradient(circle, white 0%, rgb(224, 224, 224) 100%);
   
-background: radial-gradient(circle, #0d6efd 0%, rgba(158,70,252,1) 100%);
+
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Maven Pro', sans-serif;
 }

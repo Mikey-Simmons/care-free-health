@@ -57,7 +57,7 @@ const UserProfile = () => {
         <div class="card-body">
           
         
-          <h5 class="card-title">{name}</h5>
+          <h5 class="card-title">{name}'s Profile</h5>
           
         </div>
         <ul class="list-group list-group-flush">
