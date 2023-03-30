@@ -51,23 +51,24 @@ const UserProfile = () => {
     return (
       <>
         <UserNavBar></UserNavBar>
-<div className="container2">
+        <div className="container2">
         <div class="card">
-          <div class="card-body">
-          <img  src="https://png.pngitem.com/pimgs/s/42-423085_clip-art-person-clip-art-black-man-symbol.png" className="card-img" alt="..."/>
-            <h3 class="card-title"> {name}</h3>
-            <h5 class="card-title">User Id: {id}</h5>
-
-            <h5 class="card-title">Date of Birth: {dateOfBirth} </h5>
-            <h5 class="card-title">Email: {email} </h5>
-            <h5 class="card-title">Mobile Number: {mobileNumber} </h5>
-            <h5 class="card-title">Address: {city}, {state}, {zipcode},  {country} </h5>
-            
-            <p class="card-text"></p>
-          </div>
+        <img class="card-img-top"alt="" src="https://t4.ftcdn.net/jpg/01/18/03/35/360_F_118033506_uMrhnrjBWBxVE9sYGTgBht8S5liVnIeY.jpg" />
+        <div class="card-body">
+          
+        
+          <h5 class="card-title">{name}</h5>
+          
         </div>
-
-        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{city}, {state}, {zipcode},  {country}  </li>
+          <li class="list-group-item"> {mobileNumber}</li>
+          <li class="list-group-item"> {email}</li>
+          <li class="list-group-item">{dateOfBirth}</li>
+        </ul>
+        
+      </div>
+      </div>
         <Footer></Footer>
       </>
     );
