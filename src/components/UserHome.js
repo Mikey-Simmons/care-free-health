@@ -24,13 +24,7 @@ const UserHome = () => {
     sessionStorage.clear();
     navigate("/userlogin");
   };
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
+  
   useEffect(() => {
     let id = sessionStorage.getItem("id");
     let name = sessionStorage.getItem("name");

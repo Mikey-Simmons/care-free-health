@@ -13,18 +13,44 @@ const Appointment = () => {
   const navigate = useNavigate();
   const [success, setSuccess] = useState("");
   const [appointmentDate, setAppointmentDate] = useState(null);
-  
+  const [coach, setCoach] = useState({})
+  const [found,setFound] = useState(false);
+  const isMale = (gender)=>{
+    if(gender ==="M"|| gender==="Male"){
+      
+      return "https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg"
+    }if(gender==="F"){
+      return "https://img.freepik.com/premium-vector/beautiful-female-doctor-with-medical-set-hand-drawn-cartoon-character_429315-415.jpg?w=360"
+    }
+    
+  }
   useEffect(() => {
     let id = sessionStorage.getItem("id");
     let name = sessionStorage.getItem("name");
+    
+     
+   
     if (id === "" || id === null) {
       navigate("/");
     } else {
       
-      setUserId(id);
-      
+    setUserId(id);
+    
+    
+     
     }
+    
   }, []);
+  
+  const findCoach = async()=>{
+   await axios.get("http://localhost:8080/coaches/"+routeParams.id).then(response=>{
+    setCoach(response.data)
+  })}
+  
+if(found===false){
+  findCoach();
+  setFound(true);
+}
   const validate =()=>{
     let result = true;
     
@@ -73,15 +99,21 @@ const Appointment = () => {
    <>
     <UserNavbar></UserNavbar>
     <div className="container-book">
-      <div className="book">
-        <h1>Book Appointment</h1>
+      
+        
     <ToastContainer />
       <form>
-        <div className="form-group">
+      <div class="card">
+        
+        <div class="card-body">
           
+        <img class="card-img-top"alt="" src={isMale(coach.gender)} />
+          <h5 class="card-title">Appointment with Coach {coach.name} </h5>
           <input type="hidden" value={routeParams.id} className="form-control"></input>
         </div>
-        <div className="form-group">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> 
+          <div className="form-group">
           <label>
             Date of Appointment <span className="errmsg"></span>
           </label>
@@ -91,8 +123,9 @@ const Appointment = () => {
             className="form-control"
           ></input>
         </div>
-        
-        <div className="form-group">
+          </li>
+          <li class="list-group-item"> 
+          <div className="form-group">
           <label for="times">Choose a Time Slot:</label>
           <br></br>
           <select onChange={(e)=>{setSlot(e.target.value)}} name="times" id="times">
@@ -105,14 +138,15 @@ const Appointment = () => {
             <option value="2PM to 3PM">2PM to 3PM</option>
             <option value="4PM to 5PM">4PM to 5PM</option>
           </select>
-          <br></br>
-          <br></br>
-          <button onClick={bookAppointment} type="button" class="btn btn-primary">
-                      Book Appointment
-                    </button>
+          </div>
+          </li>
+        </ul>
+        <div class="card-body">
+        <button onClick={bookAppointment}   className="btn btn-purple">Book Appointment</button>
         </div>
-      </form>
       </div>
+        </form>
+      
     </div>
     <Footer></Footer>
     </>

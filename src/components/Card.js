@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, } from "react-router-dom";
-const Card =({name, mobileNumber, speciality, id, email})=>{
+const Card =({name, mobileNumber, speciality, id, email, gender })=>{
     const navigate = useNavigate();
-    return(
+    const isMale = (gender)=>{
+      if(gender ==="M"|| gender==="Male"){
+        
+        return "https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg"
+      }if(gender==="F"){
+        return "https://img.freepik.com/premium-vector/beautiful-female-doctor-with-medical-set-hand-drawn-cartoon-character_429315-415.jpg?w=360"
+      }
+      
+    }
+    return (
         
         <div class="card">
         
         <div class="card-body">
-        <img class="card-img-top"alt="" src="https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg" alt="Card image cap"/>
+          
+        <img class="card-img-top"alt="" src={isMale(gender)} />
           <h5 class="card-title">Coach {name}</h5>
           
         </div>

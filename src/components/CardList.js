@@ -11,6 +11,7 @@ const CardList = ({ coaches }) => {
             name={coaches[i].name}
             mobileNumber={coaches[i].mobileNumber}
             speciality={coaches[i].speciality}
+            gender= {coaches[i].gender}
           />
         );
       })}

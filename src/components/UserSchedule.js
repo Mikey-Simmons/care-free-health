@@ -24,6 +24,15 @@ const UserSchedule = () => {
     var myNum = parseInt(myArray[1]);
     return months[myNum]+" "+myArray[2]+", " +myArray[0];
   }
+  const isMale = (gender)=>{
+    if(gender ==="M"|| gender==="Male"){
+      
+      return "https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg"
+    }if(gender==="F"){
+      return "https://img.freepik.com/premium-vector/beautiful-female-doctor-with-medical-set-hand-drawn-cartoon-character_429315-415.jpg?w=360"
+    }
+    
+  }
   const logout = () => {
     sessionStorage.clear();
     navigate("/coachlogin");
@@ -86,17 +95,28 @@ const UserSchedule = () => {
   }, [])
   const findCoachName =(coachId)=>{
     
-    var coachName = "";
+    
     for(var i =0; i<coaches.length; i++){
       if(coaches[i].id==coachId){
         
         return coaches[i].name;
       }
-      console.log(coaches[i].id)
+      
       
     }
   }
-  
+  const findCoachGender =(coachId)=>{
+    
+    
+    for(var i =0; i<coaches.length; i++){
+      if(coaches[i].id==coachId){
+        
+        return coaches[i].gender;
+      }
+      
+      
+    }
+  }
   const findBooking =(id)=>{
     let book = appointments.find(
       function(el){
@@ -153,7 +173,7 @@ const UserSchedule = () => {
                 
                     <h5 class="mb-1">Reschedule Appointment with {findCoachName(appToBeUpdated.coachId)}  </h5>
                     <div className="right">
-                    <img alt="" src="https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg"/>
+                    <img alt="" src={isMale(findCoachGender(appToBeUpdated.coachId))}/>
                       </div>
 
                 </div>
@@ -201,7 +221,7 @@ const UserSchedule = () => {
         
         <div className="container2 px-1 py-5 mx-auto">
           {appointments.map(
-            ({ appointmentDate, slot, userId, coachId, id }) => (
+            ({ appointmentDate, slot, userId, coachId, id, }) => (
               
               <div class="container-fluid px-1 py-5 mx-auto">
     <div class="row d-flex justify-content-center">
@@ -211,7 +231,7 @@ const UserSchedule = () => {
                 
                     <h5 class="mb-1">Appointment with Coach {findCoachName(coachId)} </h5>
                     <div className="right">
-                    <img alt="" src="https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg"/>
+                    <img alt="" src={isMale(findCoachGender(coachId))}/>
                       </div>
                 </div>
                 
