@@ -2,9 +2,9 @@
   text-align: center;
 }
 .card {
-  margin: 60px auto;
-  border: none !important;
-  width: 450px;
+  
+  margin: 50px;
+  width: 500px !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -25,12 +25,23 @@ img {
   border-radius: 50%;
   cursor: pointer;
 }
+img.card-img-top{
+  width: 100px;
+  height: 100px;
+}
+
+.container-card{
+  display: flex;
+  
+}
 
 
 
 
-
-
+Card{
+  
+  
+}
 
 
 
@@ -52,12 +63,10 @@ h1.userhome{
 .card-container{
   display: flex;
   justify-content: space-evenly;
-  
+  width: 100%;
 }
 
-.card2{
-  width: 400px;
-}
+
 .card-body2{
   display: flex;
   justify-content: space-evenly;
@@ -86,7 +95,11 @@ h1.userhome{
 .container3{
   display: flex;
   justify-content:center;
-  
+  padding: 20px;
+}
+.container-fluid {
+  display: flex;
+  justify-content: space-evenly;
 }
 input.form-control{
   width: 300px;
@@ -96,7 +109,12 @@ input.form-control{
   display: flex;
   margin-top: 100px;
   
+
+}
+.container-fluid{
+  display: flex;
   
+  justify-content: space-around;
 }
 .book{
   background-color: whitesmoke;

@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import Scroll from "./Scroll";
 import Card from "./Card";
+import CardList from "./CardList";
 const UserHome = () => {
   const navigate = useNavigate();
   const [id, setId] = useState(null);
@@ -72,7 +73,7 @@ const UserHome = () => {
       
     return (
       <>
-      
+      <div className="cards">
         <UserNavBar></UserNavBar>
         
         <div className="container2">
@@ -87,26 +88,20 @@ const UserHome = () => {
         
                
             
-        <div className="container2 px-1 py-5 mx-auto">
         
         
-    
-      
-          {filteredCoaches.map(
-            ({ name, mobileNumber, speciality, id, email}) => (
-              
-              <Card name={name} mobileNumber={mobileNumber} speciality={speciality} id={id} email={email}></Card>
-
-            )
-          )}
-            
-            
+        
+    /
+        <CardList coaches={filteredCoaches}></CardList>
+        
+        
             
           
-          </div>
+          
      
    
         <Footer></Footer>
+        </div>
       </>
     );
   
