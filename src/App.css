@@ -35,7 +35,10 @@ img.card-img-top{
   
 }
 
-
+img.logo{
+  width: 600px;
+  height: 600px;
+}
 
 
 Card{

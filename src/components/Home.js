@@ -4,6 +4,7 @@ import Footer from "./Footer"
 import { Link, useNavigate, Navigate } from "react-router-dom";
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import logo from "../logocf.png";
 const Home =()=>{
   const navigate = useNavigate();
   function navUserLogin(){
@@ -58,7 +59,10 @@ const Home =()=>{
         <NavBar></NavBar>
   
         <div className="container">
-        <h1 className="home">Unlock your full potential and become your best self!</h1>
+          <div className="container2">
+          <img className="logo" alt="" src={logo}></img>
+          </div>
+        
         <div className="card-container">
         <div class="card2" >
   
