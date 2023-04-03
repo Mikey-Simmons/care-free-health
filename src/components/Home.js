@@ -59,8 +59,18 @@ const Home =()=>{
         <NavBar></NavBar>
   
         <div className="container">
+        <div className="container2">
+          
+          <h1 className="userhome">Welcome to CareFreeHealth! </h1>
+          
+        </div>
+        <div className="container2">
+          
+          <h2 className="userhome">Unlock your full potential and meet with one of our coaches! </h2>
+          
+        </div>
           <div className="container2">
-          <img className="logo" alt="" src={logo}></img>
+          
           </div>
         
         <div className="card-container">

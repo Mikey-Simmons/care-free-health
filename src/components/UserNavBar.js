@@ -24,11 +24,7 @@ function UserNavBar() {
               View Profile
             </a>
           </li>
-          <li className="navbar nav-item">
-            <a className="contact" href="/contact">
-              Contact Us!
-            </a>
-          </li>
+          
           <li className="navbar nav-item">
             <a href="/userlogin" className="contact" onClick={logout}>
               Logout
