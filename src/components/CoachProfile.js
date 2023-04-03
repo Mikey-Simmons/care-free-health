@@ -12,11 +12,22 @@ const CoachProfile = () => {
   const [dateOfBirth, setDateOfBirth] = useState(null);
   const [mobileNumber, setMobileNumber] = useState(null);
   const [specialty, setSpecialty] = useState(null);
+  const [gender, setGender] = useState(null);
   const logout = () => {
     sessionStorage.clear();
     navigate("/coachlogin");
   };
-
+          
+          
+  const isMale = (gender)=>{
+    if(gender ==="M"|| gender==="Male"){
+      
+      return "https://previews.123rf.com/images/wannawit/wannawit2001/wannawit200100012/137138620-doctor-medical-cartoon-design-vector.jpg"
+    }if(gender==="F"){
+      return "https://img.freepik.com/premium-vector/beautiful-female-doctor-with-medical-set-hand-drawn-cartoon-character_429315-415.jpg?w=360"
+    }
+    
+  }
   useEffect(() => {
     let id = sessionStorage.getItem("coachid");
     let name = sessionStorage.getItem("name");
@@ -32,6 +43,7 @@ const CoachProfile = () => {
         setDateOfBirth(res.data.dateOfBirth);
         setMobileNumber(res.data.mobileNumber);
         setSpecialty(res.data.speciality);
+        setGender(res.data.gender)
         setLoading(false);
       }
       fetchCoach();
@@ -42,19 +54,20 @@ const CoachProfile = () => {
     return (
       <>
         <CoachNavBar></CoachNavBar>
-
+      <div className="container2">
         <div class="card">
           <div class="card-body">
-          <img  src="https://png.pngitem.com/pimgs/s/72-721152_transparent-coach-clipart-coach-png-png-download.png" class="card-img-top" alt="..."/>
-            <h3 class="card-title"> {name}</h3>
-            <h5 class="card-title">Coach Id: {id}</h5>
-
-            <h5 class="card-title">Date of Birth: {dateOfBirth} </h5>
-            <h5 class="card-title">Specialty: {specialty} </h5>
+          <img class="card-img-top"alt="" src={isMale(gender)} />
+            <h3 class="card-title"> {name}'s Profile</h3>
+            <ul class="list-group list-group-flush">
+              <li className="list-group-item">Coach Id: {id}</li>
+              <li className="list-group-item">DOB: {dateOfBirth}</li>
+            <li className="list-group-item">Speciality: {specialty}</li>
+            </ul>
             <p class="card-text"></p>
           </div>
         </div>
-
+        </div>
         <Footer></Footer>
       </>
     );

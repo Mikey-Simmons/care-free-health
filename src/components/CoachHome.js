@@ -41,10 +41,11 @@ const CoachHome = () => {
     return (
       <>
       <CoachNavBar></CoachNavBar>
-        <h1>Welcome {name} </h1>
-
+      <div className="container2">
+        <h1>{name}'s Upcoming Appointments </h1>
+        </div>
         {appointments.map(({ appointmentDate, slot, userId, coachId, id }) => (
-          
+          <div className="container2">
           <div class="card">
             <div class="card-body">
                 
@@ -55,6 +56,7 @@ const CoachHome = () => {
                 UserId: {userId} CoachId: {coachId}
               </p>
             </div>
+          </div>
           </div>
         ))}
 

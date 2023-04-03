@@ -2,7 +2,7 @@
   text-align: center;
 }
 .card {
-  
+  background-color: whitesmoke;
   margin: 50px;
   width: 500px !important;
 }
@@ -18,7 +18,13 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
+.navbar{
+  background-color: #301E67 ;
 
+}
+#sticky-footer {
+  background-color: #301E67 ;
+}
 img {
   width: 60px;
   height: 60px;
@@ -58,16 +64,16 @@ a.contact{
 }
 h1.home{
   padding: 100px;
-  color: black;
+  color: #B6EADA !important
 }
 h1.userhome{
   font-family: 'Maven Pro', sans-serif;
-  color: black;
+  color: white;
   font-weight: 700 !important;
 }
 h2.userhome{
   font-family: 'Maven Pro', sans-serif;
-  color: black;
+  color: white;
   font-weight: 600 !important;
 }
 .card-header2.userhome{

@@ -9,7 +9,7 @@ function UserNavBar() {
       };
   return (
     <>
-      <nav class="navbar bg-primary" data-bs-theme="dark">
+      <nav class="navbar" data-bs-theme="dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/user/home">
             CareFreeHealth

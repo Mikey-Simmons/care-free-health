@@ -15,7 +15,7 @@ function CoachNavBar() {
             CareFreeHealth
           </a>
           <li className="navbar nav-item">
-            <a className="contact" href="/coachschedule">
+            <a className="contact" href="/coach/home">
               My Schedule
             </a>
           </li>
@@ -24,11 +24,7 @@ function CoachNavBar() {
               View Profile
             </a>
           </li>
-          <li className="navbar nav-item">
-            <a className="contact" href="/contact">
-              Contact Us!
-            </a>
-          </li>
+          
           <li className="navbar nav-item">
             <a href="/coachlogin" className="contact" onClick={logout}>
               Logout
