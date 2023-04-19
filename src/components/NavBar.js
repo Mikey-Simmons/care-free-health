@@ -12,8 +12,7 @@ function NavBar(){
           </a>
           
           </div>
-    <li className="navbar nav-item">
-        <a className="contact" href="/contact">Contact Us!</a></li>
+    
   </div>
 </nav>
 

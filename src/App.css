@@ -69,11 +69,14 @@ a.contact{
   text-decoration: none !important;
   font-weight: 500
   ;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
   padding-left: 100px;
 }
 a.navbar-brand{
   padding-right: 10px;
   font-weight: 500;
+  font-size: 30px;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 h1.home{
   padding: 100px;
@@ -83,11 +86,13 @@ h1.userhome{
   font-family: 'Maven Pro', sans-serif;
   color: #EDF2F4;
   font-weight: 700 !important;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 h2.userhome{
   font-family: 'Maven Pro', sans-serif;
   color: #EDF2F4;
   font-weight: 600 !important;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 .card-header2.userhome{
   
@@ -140,7 +145,7 @@ h2.userhome{
   justify-content: left;
 }
 .container-fluid2{
-  padding-left: 57%;
+  padding-left: 50%;
 }
 input.form-control{
   width: 300px;
