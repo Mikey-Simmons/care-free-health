@@ -5,9 +5,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:  #03001C
-  
-
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-blend-mode:darken;
+  background-color: #36363659;
+  background-image: url('/src/ocean.jpg');
 }
 
 code {

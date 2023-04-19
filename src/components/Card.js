@@ -18,7 +18,7 @@ const Card =({name, mobileNumber, speciality, id, email, gender })=>{
         <div class="card-body">
           
         <img class="card-img-top"alt="" src={isMale(gender)} />
-          <h5 class="card-title">Coach {name}</h5>
+          <h5 class="card-title">Coach {name} </h5>
           
         </div>
         <ul class="list-group list-group-flush">
