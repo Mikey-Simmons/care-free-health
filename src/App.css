@@ -229,13 +229,13 @@ button:focus {
 } 
 
 .btn-purple {
-  background-color: #EF233C;
+  background-color: #0F9D58;
   color: #fff;
-  border: 1px #D90429 solid;
+  border: 1px #004e09 solid;
 }
 
 .btn-purple:hover {
-  background-color:#D90429;
+  background-color:#004e09 ;
   color: #fff;
 }
 .right{
