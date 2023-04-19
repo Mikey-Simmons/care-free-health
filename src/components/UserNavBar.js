@@ -20,7 +20,11 @@ function UserNavBar() {
           </a>
           
           </div>
-          
+          <li className="navbar nav-item">
+            <a className="contact" href="/user/home">
+              Home
+            </a>
+          </li>
           <li className="navbar nav-item">
             <a className="contact" href="/userschedule">
               My Appointments

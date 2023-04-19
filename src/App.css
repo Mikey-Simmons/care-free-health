@@ -27,7 +27,7 @@
 
 }
 #sticky-footer {
-  background-color: #D90429 ;
+  background: none ;
 }
 img {
   width: 60px;
@@ -145,7 +145,7 @@ h2.userhome{
   justify-content: left;
 }
 .container-fluid2{
-  padding-left: 50%;
+  padding-left: 47%;
 }
 input.form-control{
   width: 300px;
