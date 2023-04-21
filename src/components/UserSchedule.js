@@ -208,7 +208,7 @@ const UserSchedule = () => {
             
             
             <div class="row d-flex justify-content-between mx-2 px-3">
-                <button onClick={()=>setUpdate(false)} class="btn btn-white">Go Back</button>
+                <button onClick={()=>setUpdate(false)} class="btn btn-danger">Go Back</button>
                 <button onClick={(e)=>{updateBooking(e)}} class="btn btn-purple">Reschedule</button>
             </div>
         </div>
@@ -248,7 +248,7 @@ const UserSchedule = () => {
             
             
             <div class="row d-flex justify-content-between mx-2 px-3">
-                <button onClick={()=>areYouSure(id)} className="btn btn-white">Cancel</button>
+                <button onClick={()=>areYouSure(id)} className="btn btn-danger">Cancel</button>
                 <button onClick={()=>{findBooking(id)}}  className="btn btn-purple">Reschedule</button>
             </div>
         </div>

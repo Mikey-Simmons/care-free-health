@@ -76,15 +76,19 @@ const Home =()=>{
         <div className="card-container">
         <div class="card2" >
   
-  <div class="card-body2">
-    <button onClick={AreYouSure} className="btn btn-primary">Login</button>
+    <div className="button-container">  
+    <button onClick={AreYouSure} className="btn btn-purple2">Login</button>
     
-    <button onClick={AreYouSureSignUp}className="btn btn-primary">Sign up</button>
+    </div>
+    <div className="button-container">  
+    
+    <button onClick={AreYouSureSignUp}className="btn btn-purple3">Register</button>
+    </div>
   </div>
 </div>
 
   </div>
-</div>
+
 
         
         <Footer></Footer>

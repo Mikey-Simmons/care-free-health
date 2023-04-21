@@ -2,7 +2,7 @@ function NavBar(){
     return(
         <>
         <nav class="navbar " data-bs-theme="dark">
-  <div className="container-fluid">
+  
   <div className="brand">
           <a className="navbar-brand" href="/">
             CareFreeHealth 
@@ -13,7 +13,7 @@ function NavBar(){
           
           </div>
     
-  </div>
+  
 </nav>
 
 </>

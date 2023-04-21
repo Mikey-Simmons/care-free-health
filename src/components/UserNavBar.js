@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
-
+import { AnimationWrapper } from 'react-hover-animation'
 function UserNavBar() {
     const navigate = useNavigate();
     const logout = () => {
@@ -9,9 +9,11 @@ function UserNavBar() {
       };
   return (
     <>
+    
       <nav class="navbar" data-bs-theme="dark">
-        <div className="container-fluid">
-          <div className="brand">
+        
+        
+        <div className="brand">
           <a className="navbar-brand" href="/user/home">
             CareFreeHealth 
             <svg style={{paddingLeft: "8px"}} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#EDF2F4" class="bi bi-emoji-smile-fill" viewBox="0 0 16 16">
@@ -20,29 +22,44 @@ function UserNavBar() {
           </a>
           
           </div>
+          <div className="container-fluid">
           <li className="navbar nav-item">
+          <AnimationWrapper 
+      animationConfig=' gentle'
+          >
             <a className="contact" href="/user/home">
               Home
             </a>
+            </AnimationWrapper>
           </li>
           <li className="navbar nav-item">
+          <AnimationWrapper 
+      animationConfig=' gentle'
+          >
             <a className="contact" href="/userschedule">
               My Appointments
             </a>
+            </AnimationWrapper> 
           </li>
           <li className="navbar nav-item">
+          <AnimationWrapper animationConfig=' gentle'>
+      
+          
             <a className="contact" href="/userprofile">
               View Profile
             </a>
+            </AnimationWrapper> 
           </li>
-          <div className="container-fluid2">
+          
           <li  className="navbar nav-item ">
+          <AnimationWrapper animationConfig=' gentle'>
             <a href="/userlogin" className="contact" onClick={logout}>
               Logout
             </a>
+            </AnimationWrapper>
             
           </li>
-          </div>
+          
           </div>
         
       </nav>
